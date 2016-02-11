@@ -32,7 +32,9 @@ function sum(A,B)
     var m = A.length, n = A[0].length, C = [];
     for (var i = 0; i < m; i++)
      { C[i] = [];
-       for (var j = 0; j < n; j++) C[i][j] = parseInt(A[i][j])+parseInt(B[i][j]);
+       for (var j = 0; j < n; j++) {
+           C[i][j] = parseInt(A[i][j]) + parseInt(B[i][j]);
+       }
      }
     return C;
 }
@@ -50,6 +52,18 @@ function multiply(A,B)
           for (var j = 0; j < rowsB; j++) t += A[i][j]*B[j][k];
           C[i][k] = t;
         }
+     }
+    return C;
+}
+
+function multToA(a,A)
+{   
+    var m = A.length, n = A[0].length, C = [];
+    for (var i = 0; i < m; i++)
+     { C[i] = [];
+       for (var j = 0; j < n; j++) {
+           C[i][j] = parseInt(a) * A[i][j];;
+       }
      }
     return C;
 }
@@ -96,4 +110,27 @@ var B = [
     c31.value = (multiply(A,B)[2][0]);
     c32.value = (multiply(A,B)[2][1]);
     c33.value = (multiply(A,B)[2][2]);
+}
+
+function multA() {
+var num = document.getElementById('display');
+var A = [
+  [a11.value, a12.value, a13.value],
+  [a21.value, a22.value, a23.value],
+  [a31.value, a32.value, a33.value]
+];
+var B = [
+  [b11.value, b12.value, b13.value],
+  [b21.value, b22.value, b23.value],
+  [b31.value, b32.value, b33.value]
+];
+    c11.value = (multToA(num.value,A)[0][0]);
+    c12.value = (multToA(num.value,A)[0][1]);
+    c13.value = (multToA(num.value,A)[0][2]);
+    c21.value = (multToA(num.value,A)[1][0]);
+    c22.value = (multToA(num.value,A)[1][1]);
+    c23.value = (multToA(num.value,A)[1][2]);
+    c31.value = (multToA(num.value,A)[2][0]);
+    c32.value = (multToA(num.value,A)[2][1]);
+    c33.value = (multToA(num.value,A)[2][2]);
 }

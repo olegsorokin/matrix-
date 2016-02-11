@@ -31,6 +31,22 @@ input {
     border-radius: 5px;
 }
 
-#matrix-one {
+.butt {
+    display: inline-block;
+    width: 90px;
+    padding: 5px;
+}
 
+.butt > input {
+    display: block;
+    width: 60px;
+    height: 30px;
+    margin: 15px;
+}
+
+button {
+    display: block;
+    width: 75px;
+    height: 40px;
+    margin: 15px;
 }
