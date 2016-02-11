@@ -27,8 +27,7 @@ var a11 = document.getElementById('a11'),
     c32 = document.getElementById('c32'),
     c33 = document.getElementById('c33');
 
-
-function Summ(A,B)
+function sum(A,B)
 {
     var m = A.length, n = A[0].length, C = [];
     for (var i = 0; i < m; i++)
@@ -38,7 +37,24 @@ function Summ(A,B)
     return C;
 }
 
-function summAB() {
+function multiply(A,B)
+{
+    var rowsA = A.length, colsA = A[0].length,
+        rowsB = B.length, colsB = B[0].length,
+        C = [];
+    if (colsA != rowsB) return false;
+    for (var i = 0; i < rowsA; i++) C[i] = [];
+    for (var k = 0; k < colsB; k++)
+     { for (var i = 0; i < rowsA; i++)
+        { var t = 0;
+          for (var j = 0; j < rowsB; j++) t += A[i][j]*B[j][k];
+          C[i][k] = t;
+        }
+     }
+    return C;
+}
+
+function addAB() {
 var A = [
   [a11.value, a12.value, a13.value],
   [a21.value, a22.value, a23.value],
@@ -49,13 +65,35 @@ var B = [
   [b21.value, b22.value, b23.value],
   [b31.value, b32.value, b33.value]
 ];
-    c11.value = (Summ(A,B)[0][0]);
-    c12.value = (Summ(A,B)[0][1]);
-    c13.value = (Summ(A,B)[0][2]);
-    c21.value = (Summ(A,B)[1][0]);
-    c22.value = (Summ(A,B)[1][1]);
-    c23.value = (Summ(A,B)[1][2]);
-    c31.value = (Summ(A,B)[2][0]);
-    c32.value = (Summ(A,B)[2][1]);
-    c33.value = (Summ(A,B)[2][2]);
+    c11.value = (sum(A,B)[0][0]);
+    c12.value = (sum(A,B)[0][1]);
+    c13.value = (sum(A,B)[0][2]);
+    c21.value = (sum(A,B)[1][0]);
+    c22.value = (sum(A,B)[1][1]);
+    c23.value = (sum(A,B)[1][2]);
+    c31.value = (sum(A,B)[2][0]);
+    c32.value = (sum(A,B)[2][1]);
+    c33.value = (sum(A,B)[2][2]);
+}
+
+function multiplyAB() {
+var A = [
+  [a11.value, a12.value, a13.value],
+  [a21.value, a22.value, a23.value],
+  [a31.value, a32.value, a33.value]
+];
+var B = [
+  [b11.value, b12.value, b13.value],
+  [b21.value, b22.value, b23.value],
+  [b31.value, b32.value, b33.value]
+];
+    c11.value = (multiply(A,B)[0][0]);
+    c12.value = (multiply(A,B)[0][1]);
+    c13.value = (multiply(A,B)[0][2]);
+    c21.value = (multiply(A,B)[1][0]);
+    c22.value = (multiply(A,B)[1][1]);
+    c23.value = (multiply(A,B)[1][2]);
+    c31.value = (multiply(A,B)[2][0]);
+    c32.value = (multiply(A,B)[2][1]);
+    c33.value = (multiply(A,B)[2][2]);
 }
